@@ -1,111 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap');
+
 :root {
-  --text: #ccc;
-  --text-h: #f0f0f0;
-  --bg: #0f0f1e;
-  --border: #1a1a2e;
-  --code-bg: #1a1a2e;
-  --accent: #0ef;
-  --accent-bg: rgba(0, 238, 255, 0.1);
-  --accent-border: rgba(0, 238, 255, 0.5);
-  --social-bg: rgba(0, 238, 255, 0.1);
-  --shadow: rgba(0, 238, 255, 0.3) 0 10px 15px -3px, rgba(0, 238, 255, 0.1) 0 4px 6px -2px;
+  --bg: #0b0b0d;
+  --bg-elevated: #131316;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
 
-  --sans: 'Segoe UI', Roboto, sans-serif;
-  --heading: 'Segoe UI', Roboto, sans-serif;
-  --mono: 'Courier New', monospace;
+  --text: #f4f2ee;
+  --text-secondary: #a6a5ab;
+  --text-muted: #6f6f76;
 
-  font: 16px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --accent: #e8604f;
+  --accent-strong: #ff7862;
+  --accent-bg: rgba(232, 96, 79, 0.12);
+  --accent-border: rgba(232, 96, 79, 0.35);
+
+  --heading-font: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --body-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  --mono-font: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  --content-width: 880px;
+  --section-gap: clamp(56px, 9vw, 108px);
+
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Flex items default to min-width: auto, which stops them shrinking below
+   their widest unwrapped line of text — override so long paragraphs wrap
+   instead of overflowing the viewport. */
+#root > * {
+  min-width: 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: #16100f;
 }
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--heading);
-  font-weight: 600;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 2.5rem;
-  margin: 1rem 0;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin: 1.2rem 0 0.8rem;
-}
-
 h3 {
-  font-size: 1.3rem;
-  margin: 1rem 0 0.5rem;
-}
-
-p {
-  line-height: 1.6;
-  margin: 0.8rem 0;
+  font-family: var(--heading-font);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
 }
 
 a {
-  color: var(--accent);
+  color: inherit;
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: #66ff00;
-}
-
-code {
-  font-family: var(--mono);
-  background: var(--code-bg);
-  padding: 4px 8px;
-  border-radius: 4px;
-  color: #0ef;
-  display: inline-block;
-}
-
-pre {
-  background: var(--code-bg);
-  padding: 1rem;
-  border-radius: 4px;
-  overflow-x: auto;
 }
 
 button {
-  font-family: var(--sans);
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-input,
-textarea,
-select {
-  font-family: var(--sans);
-  background: rgba(0, 238, 255, 0.05);
-  border: 1px solid rgba(0, 238, 255, 0.3);
-  color: var(--text);
-  padding: 8px 12px;
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
   border-radius: 4px;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(0, 238, 255, 0.2);
+.icon-sm {
+  width: 16px;
+  height: 16px;
 }
 
+.icon-md {
+  width: 20px;
+  height: 20px;
+}

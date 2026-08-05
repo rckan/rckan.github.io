@@ -1,24 +1,28 @@
-import { HashRouter, Routes, Route } from 'react-router'
-import { Navigation } from './components/Navigation'
-import { Home } from './pages/Home'
-import { Bio } from './pages/Bio'
-import { Portfolio } from './pages/Portfolio'
-import { Resume } from './pages/Resume'
-import './App.css'
+import { Nav } from './components/Nav'
+import { Hero } from './sections/Hero'
+import { About } from './sections/About'
+import { Experience } from './sections/Experience'
+import { Projects } from './sections/Projects'
+import { Skills } from './sections/Skills'
+import { Education } from './sections/Education'
+import { Contact } from './sections/Contact'
+import './styles/site.css'
 
 function App() {
   return (
-    <HashRouter>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/bio" element={<Bio />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/resume" element={<Resume />} />
-      </Routes>
-    </HashRouter>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Education />
+        <Contact />
+      </main>
+    </>
   )
 }
 
 export default App
-
